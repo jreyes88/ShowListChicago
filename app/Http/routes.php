@@ -12,14 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->action('ShowsController@index');
 });
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'ShowsController@index');
 
-Route::post('/users/{user}/shows', 'ShowssController@store');
+Route::post('/users/{user}/shows', 'ShowsController@store');
 
 Route::resource('shows', 'ShowsController');
 

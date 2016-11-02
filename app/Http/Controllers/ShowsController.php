@@ -42,7 +42,10 @@ class ShowsController extends Controller
     {
         $show = new Shows();
 
+        $show->show_date = $request->show_date;
+        $show->bands = $request->bands;
         $show->venue = $request->venue;
+        $show->description = $request->description;
 
         $show->save();
 
@@ -57,7 +60,9 @@ class ShowsController extends Controller
      */
     public function show($id)
     {
-        //
+        $show = Shows::find($id);
+
+        return view('show', compact('show'));
     }
 
     /**

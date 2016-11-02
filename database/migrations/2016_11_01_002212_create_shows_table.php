@@ -14,7 +14,10 @@ class CreateShowsTable extends Migration
     {
         Schema::create('shows', function (Blueprint $table) {
             $table->increments('id');
+            $table->date('show_date');
+            $table->text('bands');
             $table->text('venue');
+            $table->text('description');
             $table->timestamps();
         });
     }
