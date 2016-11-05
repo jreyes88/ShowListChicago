@@ -3,12 +3,13 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">Post a New Show!</div>
+				<div class="panel-heading">Update the show!</div>
 				<div class="panel-body">
 					<form action='/shows/{{$show->id}}' method='post'>
 						{{ csrf_field() }}
+						{{ method_field('PUT') }}
 						<div class="form-group">
 							<label for="showDateInput">
 								Show Date:
@@ -35,7 +36,7 @@
 						</div>
 						<button type="submit" class="btn btn-primary">
 							<span class="glyphicon glyphicon-music" aria-hidden="true"></span>
-							Post Show
+							Update Show
 						</button>
 					</form>
 				</div>

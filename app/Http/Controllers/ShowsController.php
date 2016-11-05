@@ -73,7 +73,9 @@ class ShowsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $show = Shows::find($id);
+
+        return view('showEdit', compact('show'));
     }
 
     /**
@@ -85,7 +87,27 @@ class ShowsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $show = Shows::find($id);
+        if($request->show_date != '')
+        {
+            $show->show_date = $request->show_date;
+        }
+        if($request->bands != '')
+        {
+            $show->bands = $request->bands;
+        }
+        if($request->venue != '')
+        {
+            $show->venue = $request->venue;
+        }
+        if($request->description != '')
+        {
+            $show->description = $request->description;
+        }
+
+        $show->save();
+
+        return redirect()->action('ShowsController@show', [$id]);
     }
 
     /**
